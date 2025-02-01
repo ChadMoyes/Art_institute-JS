@@ -1,3 +1,5 @@
+
+//Test fetch for the data
 fetch('https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display')
     .then(response => response.json())
     .then(data => {
@@ -17,36 +19,6 @@ const painting = [
         id: "painting",
         title: "Starry Night",
         artist: "Vincent Van Gough",
-        description: "A famous painting",
-    },
-    {
-        id: "painting2",
-        title: "Mona Lisa",
-        artist: "Leonardo Da Vinci",
-        description: "A famous painting",
-    },
-    {
-        id: "painting3",
-        title: "The Scream",
-        artist: "Edward Munch",
-        description: "A famous painting",
-    },
-    {
-        id: "painting4",
-        title: "Persistence of Memory",
-        artist: "Salvador Dali",
-        description: "A famous painting",
-    },
-    {
-        id: "painting5",
-        title: "Girl with the Pearl Earring",
-        artist: "Johannes Vermeer",
-        description: "A famous painting",
-    },
-    {
-        id: "painting6",
-        title: "The Birth of Venus",
-        artist: "Sandro Botticelli",
         description: "A famous painting",
     },
 ];
@@ -75,10 +47,12 @@ function showPaintingDetails(event) {
     }
 )}
 
+//Closes the Modal
 function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
 
+//Gets the data from the chicago art API
 document.querySelectorAll('gallery__img').forEach(image => {
     image.addEventListener('click', function() {
         const artworkId = this.getAttribute('data-id');
@@ -93,6 +67,7 @@ document.querySelectorAll('gallery__img').forEach(image => {
     });
 });
 
+//extra step to close the Modal
 document.getElementById("modal").addEventListener("click", function(event) {
     if (event.target === this) {
         this.style.display = "none";
@@ -101,7 +76,7 @@ document.getElementById("modal").addEventListener("click", function(event) {
 
 document.getElementById("modal-close").addEventListener("click", closeModal);
 
-
+//Randomizes the positioning of all the paintings/artworks
 window.onload = () => {
     const paintings = document.querySelectorAll('.gallery figure');
 
